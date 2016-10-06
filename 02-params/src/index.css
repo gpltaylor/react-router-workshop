@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+ul li {
+  list-style-type: none;
+  display: inline;
+}
+
+li+li:before
+{
+  content: ' | ';
+}
+
+.contact form {
+  display: flex;
+  width: 600px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.contact form input {
+  display: block;
+}
