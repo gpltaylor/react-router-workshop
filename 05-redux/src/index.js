@@ -5,6 +5,7 @@ import { createStore, applyMiddleware, compose} from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import Redirector from "./Redirect";
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import App from './App';
 import './index.css';
@@ -16,10 +17,6 @@ const initialState = {
 };
 
 let middleware = [];
-
-const devTools = window.devToolsExtension ? window.devToolsExtension({
-  deserializeState: state => initialState
-}) : f => f;
 
 const reactRouterReduxMiddleware = store => next => action => {
   console.log("Dispatch:", action);
@@ -48,7 +45,7 @@ const testReducer = (state=initialState, action) => {
 }
 
 const store = createStore(testReducer, 
-  applyMiddleware(reactRouterReduxMiddleware, thunk));
+    composeWithDevTools(applyMiddleware(reactRouterReduxMiddleware, thunk)));
 
 ReactDOM.render(<Router>
   <Provider store={store}>
