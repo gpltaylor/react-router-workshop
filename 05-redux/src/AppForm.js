@@ -21,7 +21,7 @@ class AppFormComponent extends React.Component {
 
   submit() {
     this.setState({blockTransitions: false, status:'Thank you, your application has been submitted.'});
-    this.props.navigateTo();
+    this.props.navigateTo('/');
   }
 
   render() {
@@ -49,17 +49,16 @@ class AppFormComponent extends React.Component {
   }
 }
 
-
 const state = (state, ownProps = {}) => {
   return {
     location: state.location
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    navigateTo: () => dispatch({ type: "NAVIGATE_TO", navigateTo: '/' })
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  navigateTo: (location) => {
+    dispatch({ type: "NAVIGATE_TO", navigateTo: "/" });
   }
-}
+});
 
 export default connect(state, mapDispatchToProps)(AppFormComponent);
