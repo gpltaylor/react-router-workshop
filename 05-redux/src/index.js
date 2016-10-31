@@ -41,6 +41,13 @@ const testReducer = (state=initialState, action) => {
     return Object.assign({}, state, {navigateNow: false, navigateTo: '/'});   
   }
 
+  switch (action.type) {
+    case "FORM_UPDATE":
+      return Object.assign({}, state, {[action.key]: action.value });
+    default:
+      break;
+  }
+
   return state;
 }
 

@@ -16,7 +16,8 @@ class AppFormComponent extends React.Component {
   }
 
   onChange(e) {
-    this.setState({[e.target.name]: e.target.value, blockTransitions: true});
+    this.setState({blockTransitions: true });    
+    this.props.updateForm(e.target.name, e.target.value);
   }
 
   submit() {
@@ -34,16 +35,16 @@ class AppFormComponent extends React.Component {
             )}
           />)}
         <form>
-          <input name="firstName" placeholder="Firstname" value={this.state.firstName} onChange={this.onChange} />
-          <input name="surname" placeholder="Surname" value={this.state.surname} onChange={this.onChange} />
-          <input name="age" placeholder="age" type="number" value={this.state.age} onChange={this.onChange} />
+          <input name="firstName" placeholder="Firstname" value={this.props.firstName} onChange={this.onChange} />
+          <input name="surname" placeholder="Surname" value={this.props.surname} onChange={this.onChange} />
+          <input name="age" placeholder="age" type="number" value={this.props.age} onChange={this.onChange} />
           <div>
-            Hi {(`${this.state.firstName || 'Guest'} ${this.state.surname}`).trim()}, please check your
+            Hi {(`${this.props.firstName || 'Guest'} ${this.props.surname}`).trim()}, please check your
             details and then submit.
           </div>
           <input type="button" defaultValue="Submit" onClick={this.submit} />
         </form>
-        <div>{this.state.status}</div>
+        <div>{this.props.status}</div>
       </div>
     )
   }
@@ -51,13 +52,19 @@ class AppFormComponent extends React.Component {
 
 const state = (state, ownProps = {}) => {
   return {
-    location: state.location
+    location: state.location,
+    firstName: state.firstName,
+    surname: state.surname,
+    age: state.age
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   navigateTo: (location) => {
     dispatch({ type: "NAVIGATE_TO", navigateTo: "/" });
+  }, 
+  updateForm: (key, value) => {
+    dispatch( { type: "FORM_UPDATE", key, value });
   }
 });
 

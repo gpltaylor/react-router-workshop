@@ -59,7 +59,6 @@ class App extends Component {
         <Navigation />
         <div className="App-main">
           <Match pattern="/" exactly component={Home} />
-          <Match pattern="/apply" component={AppForm} />
           <MatchWithFade  pattern="/apply" component={AppForm} transition="opacity 2000ms" />
         </div>
       </div>
