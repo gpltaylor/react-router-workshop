@@ -4,14 +4,11 @@ import Redirect from 'react-router/Redirect'
 
 let RedirectorComponent = (props) => {
     let toPath = { pathname: props.navigateTo, state: { from: props.location }};
-    if (props.navigateNow) {
-        props.navigateComplete();
-    }
 
     return (
         <div>
             { props.navigateNow ? <Redirect 
-                to={toPath}/> : 'do nothing' }
+                to={toPath}/> : '' }
         </div>
     )
 }
@@ -25,7 +22,7 @@ const state = (state, ownProps = {}) => {
 
 const mapDispatchToProps = (dispatch) => ({
     navigateComplete: () => {
-        dispatch({type: "NAVIGATE_RESET" });
+        //dispatch({type: "NAVIGATE_RESET" });
     }
 });
 
