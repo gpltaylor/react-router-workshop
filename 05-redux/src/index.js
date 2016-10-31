@@ -22,6 +22,8 @@ const devTools = window.devToolsExtension ? window.devToolsExtension({
 }) : f => f;
 
 const reactRouterReduxMiddleware = store => next => action => {
+  console.log("Dispatch:", action);
+
   if (action.type === "NAVIGATE_TO" ) {
     window.setTimeout(() => {
       store.dispatch({ type: "NAVIGATE_RESET" });      
@@ -44,9 +46,6 @@ const testReducer = (state=initialState, action) => {
 
   return state;
 }
-
-middleware.push(thunk);
-middleware.push(reactRouterReduxMiddleware);
 
 const store = createStore(testReducer, 
   applyMiddleware(reactRouterReduxMiddleware, thunk));

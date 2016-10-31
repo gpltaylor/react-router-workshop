@@ -7,6 +7,7 @@ import Link from 'react-router/Link';
 
 import Home from './home';
 import AppForm from './AppForm';
+import Navigation from "./Navigation";
 
 import logo from './logo.svg';
 import './App.css';
@@ -55,12 +56,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/apply">Apply</Link></li>
-          </ul>
-        </nav>
+        <Navigation />
         <div className="App-main">
           <Match pattern="/" exactly component={Home} />
           <Match pattern="/apply" component={AppForm} />
