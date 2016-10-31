@@ -58,9 +58,6 @@ const state = (state, ownProps = {}) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   navigateTo: (location) => {
     dispatch({ type: "NAVIGATE_TO", navigateTo: "/" });
-    window.setTimeout(() => {
-      dispatch({ type: "NAVIGATE_RESET" });      
-    }, 200);
   }
 });
 

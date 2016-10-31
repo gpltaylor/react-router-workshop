@@ -15,9 +15,21 @@ const initialState = {
   navigateTo: '/'
 };
 
+let middleware = [];
+
 const devTools = window.devToolsExtension ? window.devToolsExtension({
   deserializeState: state => initialState
 }) : f => f;
+
+const reactRouterReduxMiddleware = store => next => action => {
+  if (action.type === "NAVIGATE_TO" ) {
+    window.setTimeout(() => {
+      store.dispatch({ type: "NAVIGATE_RESET" });      
+    }, 200);
+  }
+
+  return next(action);
+}
 
 /*
   TODO: Use a Thunk to trigger two updates to call the navigation and then the reset
@@ -33,9 +45,11 @@ const testReducer = (state=initialState, action) => {
   return state;
 }
 
+middleware.push(thunk);
+middleware.push(reactRouterReduxMiddleware);
+
 const store = createStore(testReducer, 
-  compose(applyMiddleware(thunk)),
-  devTools);
+  applyMiddleware(reactRouterReduxMiddleware, thunk));
 
 ReactDOM.render(<Router>
   <Provider store={store}>
