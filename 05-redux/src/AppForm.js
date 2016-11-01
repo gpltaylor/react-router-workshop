@@ -1,6 +1,7 @@
 import React from 'react';
 import NavigationPrompt from 'react-router/NavigationPrompt';
 import { connect } from 'react-redux';
+import { navigateTo } from "./TrippleR/rrrActions";
 
 class AppFormComponent extends React.Component {
   constructor() {
@@ -60,7 +61,7 @@ const state = (state, ownProps = {}) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   navigateTo: (location) => {
-    dispatch({ type: "NAVIGATE_TO", navigateTo: "/" });
+    dispatch(navigateTo("/"));
   }, 
   updateForm: (key, value) => {
     dispatch( { type: "REGISTER_FORM_UPDATE", key, value });

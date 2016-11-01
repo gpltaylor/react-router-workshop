@@ -1,7 +1,9 @@
+import { NAVIGATE_TO, reset } from "./rrrActions";
+
 let reactRouterReduxMiddleware = store => next => action => {
-  if (action.type === "NAVIGATE_TO" ) {
+  if (action.type === NAVIGATE_TO ) {
     window.setTimeout(() => {
-      store.dispatch({ type: "NAVIGATE_RESET" });      
+      store.dispatch(reset());      
     }, 200);
   }
   return next(action);

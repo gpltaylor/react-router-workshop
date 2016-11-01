@@ -1,3 +1,5 @@
+import { NAVIGATE_TO, NAVIGATE_RESET } from "./rrrActions";
+
 const initialState = {
     navigateNow: false,
     navigateTo: "/",
@@ -5,10 +7,10 @@ const initialState = {
 };
 
 const rrrReducer = (state=initialState, action) => {
-  if (action.type === "NAVIGATE_TO") {
+  if (action.type === NAVIGATE_TO) {
     return Object.assign({}, state, {navigateNow: true, navigateTo: action.navigateTo});
   }
-  if (action.type === "NAVIGATE_RESET") {
+  if (action.type === NAVIGATE_RESET) {
     return Object.assign({}, state, {navigateNow: false, navigateTo: '/'});   
   }
 
