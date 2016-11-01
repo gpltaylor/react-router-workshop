@@ -52,10 +52,9 @@ class AppFormComponent extends React.Component {
 
 const state = (state, ownProps = {}) => {
   return {
-    location: state.location,
-    firstName: state.firstName,
-    surname: state.surname,
-    age: state.age
+    firstName: state.register.firstName,
+    surname: state.register.surname,
+    age: state.register.age
   }
 }
 
@@ -64,7 +63,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch({ type: "NAVIGATE_TO", navigateTo: "/" });
   }, 
   updateForm: (key, value) => {
-    dispatch( { type: "FORM_UPDATE", key, value });
+    dispatch( { type: "REGISTER_FORM_UPDATE", key, value });
   }
 });
 

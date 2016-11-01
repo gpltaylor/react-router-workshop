@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import Redirect from 'react-router/Redirect'
 
-let RedirectorComponent = (props) => {
+let TrippleRComponent = (props) => {
     let toPath = { pathname: props.navigateTo, state: { from: props.location }};
 
     return (
@@ -13,10 +13,14 @@ let RedirectorComponent = (props) => {
     )
 }
 
+/**
+ * TODO: Allow ownProps to determine where state is stored
+ * as there is a chance that the Reducer is not called rrr.
+ */
 const state = (state, ownProps = {}) => {
   return {
-    navigateNow: state.navigateNow,
-    navigateTo: state.navigateTo
+    navigateNow: state.rrr.navigateNow,
+    navigateTo: state.rrr.navigateTo
   }
 }
 
@@ -26,4 +30,4 @@ const mapDispatchToProps = (dispatch) => ({
     }
 });
 
-export default connect(state, mapDispatchToProps)(RedirectorComponent);
+export default connect(state, mapDispatchToProps)(TrippleRComponent);
