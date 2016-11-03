@@ -6,9 +6,7 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import TrippleR from "./TrippleR/rrrComponent";
-import rrrMiddleware from "./TrippleR/rrrmidleware";
-import rrrReducer from "./TrippleR/rrrReducers";
+import {TrippleR, rrrMiddleware, rrrReducer} from "trippler";
 
 import App from './App';
 import './index.css';

@@ -1,7 +1,7 @@
 import React from 'react';
 import NavigationPrompt from 'react-router/NavigationPrompt';
 import { connect } from 'react-redux';
-import { navigateTo } from "./TrippleR/rrrActions";
+import { navigateTo } from "trippler";
 
 class AppFormComponent extends React.Component {
   constructor() {
