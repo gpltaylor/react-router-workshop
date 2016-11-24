@@ -21,7 +21,7 @@ var App = () => {
         <Navigation />
         <div className="App-intro">
           <Match pattern="/" exactly component={Home} />
-          <Match pattern="/about" component={About} />
+          <Match pattern="/about" exactly component={About} />
           <Miss component={NotFound} />
         </div>
       </div>
