@@ -1,7 +1,6 @@
 import React from "react";
 
 var Contact = ({location}) => {
-  console.log("Contact", location);
 
   return <div className="contact">
     {location.query == null ?
@@ -9,8 +8,8 @@ var Contact = ({location}) => {
         <h1>Contact</h1>
         <p>Please complete the following form</p>
         <form action="/contact" method="GET">
-          <input name="firstName" placeholder="first name" />
-          <input name="email" type="email" placeholder="email" />
+          <input name="firstName" placeholder="first name" autoComplete="firstname" />
+          <input name="email" type="email" placeholder="email" autoComplete="email" />
           <textarea name="message" placeholder="enter your message" />
           <input type="submit" value="Send" />
         </form>
