@@ -1,0 +1,9 @@
+{
+    "/": "<div><h1>Homes</h1><p>Welcome to the best React Router Tutorial you will EVER see!!!! yeahhhh baby</p></div>",
+    "/application/DFG-20394": "<h1>Application</h1><p>Application : DFG-20394</p></div><div style=\"display:flex;text-align:left;padding-left:15px;padding-right:15px;\"><div style=\"width:20%;\"><a href=\"/application/DFG-20394/notes\" class=\"\">Notes</a></div><div style=\"width:80%;\">",
+    "/application/DFG-20394/notes": "<div><h1>Notes</h1><p>See the notes for this applications</p><table><thead><tr><th>Id</th><th>User</th><th>msg</th><th> </th></tr></thead><tbody><tr><td>12</td><td>9493</td><td>Customer requests new product PROD30495</td><td><a href=\"/application/DFG-20394/notes/12\" class=\"\">more</a></td></tr><tr><td>45</td><td>8452</td><td>Advised customer that we don&#x27;t have item in stock at the moment</td><td><a href=\"/application/DFG-20394/notes/45\" class=\"\">more</a></td></tr></tbody></table></div></div></div>",
+    "/application/DFG-20394/notes/12": "<div><h1>Application</h1><p>Application : DFG-20394</p></div><div style=\"display:flex;text-align:left;padding-left:15px;padding-right:15px;\"><div style=\"width:20%;\"><a href=\"/application/DFG-20394/notes\" class=\"\">Notes</a></div><div style=\"width:80%;\"><div><div>noteId: 12</div><div>user: 9493</div><div>wrote: Customer requests new product PROD30495</div>",
+    "/application/DFG-20394/notes/45": "<div><h1>Application</h1><p>Application : DFG-20394</p></div><div style=\"display:flex;text-align:left;padding-left:15px;padding-right:15px;\"><div style=\"width:20%;\"><a href=\"/application/DFG-20394/notes\" class=\"\">Notes</a></div><div style=\"width:80%;\"><div><div>noteId: 45</div><div>user: 8452</div><div>wrote: Advised customer that we don&#x27;t have item in stock at the moment</div></div></div></div>",
+    "/application/DFG-20394/notes/99": "<div>Note not found</div>",
+    "test": "test"
+}

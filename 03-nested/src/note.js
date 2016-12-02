@@ -4,12 +4,12 @@ import noteService from "./application/notes/noteService";
 
 var Note = ({params}) => {
   console.log("Note Render", params.id);
-  var noteId, userId, message;
   var notesData = noteService.getNotes();
-  var notes = notesData.filter(note => note.noteId == params.id);
-  if(notes && notes.length === 1) {
-    var {noteId, userId, message} = notes[0];
-  }
+  var notes = notesData.filter(note => note.noteId === parseInt(params.id));
+
+  if (notes === null || notes.length === 0) { return <div>Note not found</div>}
+
+  var {noteId, userId, message} = notes[0];
 
   return (
     <div>

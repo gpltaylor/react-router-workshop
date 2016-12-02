@@ -1,6 +1,5 @@
 import React from "react";
-import {Match} from 'react-router';
-import Note, {NoteRow} from "./note";
+import {NoteRow} from "./note";
 import noteService from "./application/notes/noteService";
 
 var Notes = ({params, location, pathname}) => {
