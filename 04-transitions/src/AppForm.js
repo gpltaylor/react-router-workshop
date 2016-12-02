@@ -25,12 +25,9 @@ class AppForm extends React.Component {
   render() {
     return (
       <div>
-        {this.state.blockTransitions && (
-          <NavigationPrompt
-            message={(location) => (
-              `Are you sure you want to go to ${location.pathname}`
-            )}
-          />)}
+          <NavigationPrompt 
+            when={this.state.blockTransitions}
+            message={(location) => (`Are you sure you want to go to ${location.pathname}`)}/>
         <form>
           <input name="firstName" placeholder="Firstname" value={this.state.firstName} onChange={this.onChange} />
           <input name="surname" placeholder="Surname" value={this.state.surname} onChange={this.onChange} />
