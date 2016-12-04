@@ -27,26 +27,30 @@ import {
   missingHTML, contactHTML, contactSuccessHTML, empty
 } from "./data";
 
-describe('app.test', () => {
-
-  it('App renders correctly', () => {
+describe('app.contact.test', () => {
+  it('Successfully completed', () => {
     const div = document.createElement('div');
-    const pathname = '/about';
-    const html = renderToStaticMarkup(<Router initialEntries={[{ pathname }]}>
+    const pathname = '/contact';
+    const query = {
+        firstName: "Garry",
+        message: "Thank you for watching the best react-router demo ever!"
+      }
+
+    const html = renderToStaticMarkup(<Router initialEntries={[{ pathname, query }]}>
       <App />
     </Router>);
 
-    expect(html).toContain(aboutHTML);
+    expect(html).toContain(contactSuccessHTML);
   });
 
-  it('Application has appId props and notes has noteId', () => {
+  it('Show contact form', () => {
     const div = document.createElement('div');
-    const pathname = '/application/ALF-34059/notes/987654';
+    const pathname = '/contact';
     const html = renderToStaticMarkup(<Router initialEntries={[{ pathname }]}>
       <App />
     </Router>);
 
-    expect(html).toContain(applicationWithNotesHTML);
+    expect(html).toContain(contactHTML);
   });
 
 });
