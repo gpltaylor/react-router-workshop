@@ -1,0 +1,4 @@
+{
+    "/": "test",
+    "/queries": "<div class=\"App-intro\"><div><h1>Links</h1><ul><li><a href=\"/queries\" class=\"\">Root Query</a></li><li><a href=\"/queries?age=21&amp;firstName=Garry&amp;surname=Taylor\" class=\"\">Query A</a></li><li><a href=\"/queries?age=31&amp;firstName=John&amp;surname=Papa\" class=\"\">Query B</a></li></ul></div>"
+}

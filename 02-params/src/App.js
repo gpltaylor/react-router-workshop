@@ -10,6 +10,7 @@ import NotFound from './notfound';
 import Posts from './posts';
 import Application from './application';
 import Contact from './contact';
+import Queries from './queries';
 
 var App = () => {
   return (
@@ -25,6 +26,7 @@ var App = () => {
         <Match pattern="/contact" component={Contact} />
         <Match pattern="/posts/:name" component={Posts} />
         <Match pattern="/application/:appId/notes/:noteId" component={Application} />
+        <Match pattern="/queries" component={Queries} />
         <Miss component={NotFound} />
       </div>
     </div>
