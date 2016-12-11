@@ -8,7 +8,7 @@ export const aboutHTML = "<div><h1>About Us</h1><p>A little bit about us</p></di
 
 export const missingHTML = "<h1>Not Found</h1>"
 
-export const contactHTML = "<div class=\"App-intro\"><div class=\"contact\"><div><h1>Contact</h1><p>Please complete the following form</p><form action=\"/contact\" method=\"GET\"><input name=\"firstName\" placeholder=\"first name\" autocomplete=\"firstname\" /><input type=\"email\" name=\"email\" placeholder=\"email\" autocomplete=\"email\" /><textarea name=\"message\" placeholder=\"enter your message\"></textarea><input type=\"submit\" value=\"Send\" /></form></div>"
+export const contactHTML = "<div><h1>Contact</h1><p>Please complete the following form</p><form action=\"/contact\" method=\"GET\"><input name=\"firstName\" placeholder=\"first name\" autocomplete=\"firstname\"/><input type=\"email\" name=\"email\" placeholder=\"email\" autocomplete=\"email\"/><textarea name=\"message\" placeholder=\"enter your message\"></textarea><input type=\"submit\" value=\"Send\"/></form></div></div></div></div>"
 
 export const contactSuccessHTML = "<div class=\"contact\"><div><h2>Thank you, Garry!</h2><p>Thank you for watching the best react-router demo ever!</p><p>Your message shown above has been successfully submitted. We will be in contact with your shortly.</p></div>"
 
