@@ -2,8 +2,11 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Router from 'react-router/BrowserRouter'
-import {Match, Miss} from 'react-router'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
 
 import Navigation from './navigation';
 import Home from './home';
@@ -20,9 +23,11 @@ var App = () => {
         </div>
         <Navigation />
         <div className="App-intro">
-          <Match pattern="/" exactly component={Home} />
-          <Match pattern="/about" exactly component={About} />
-          <Miss component={NotFound} />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+          <Route component={NotFound} />
+        </Switch>
         </div>
       </div>
     </Router>
