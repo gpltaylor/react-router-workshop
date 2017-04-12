@@ -8,7 +8,7 @@ import Navigation from "./Navigation";
 
 import logo from './logo.svg';
 import './App.css';
-
+import './index.css';
 
 class App extends Component {
 
