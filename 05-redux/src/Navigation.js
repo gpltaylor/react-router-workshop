@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import { push } from "react-router-redux";
 
 let NavigationComponent = (props) => (
 <nav>
@@ -18,7 +19,7 @@ const state = (state, ownProps = {}) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   navigateTo: (location) => {
-    dispatch({ type: "NAVIGATE_TO", navigateTo: location });
+    dispatch(push(location));
   }
 });
 

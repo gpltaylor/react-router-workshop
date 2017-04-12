@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import Router from "react-router/BrowserRouter";
-import { createStore, applyMiddleware, compose, combineReducers} from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from 'redux-devtools-extension';
-
-import {TrippleR, rrrMiddleware, rrrReducer} from "trippler";
+import createHistory from 'history/createBrowserHistory';
 
 import App from './App';
 import './index.css';
@@ -17,31 +15,36 @@ const initialState = {
   age: ''
 };
 
-let middleware = [];
 
 /*
   TODO: Use a Thunk to trigger two updates to call the navigation and then the reset
 */
-const testReducer = (state=initialState, action) => {
+const testReducer = (state = initialState, action) => {
   switch (action.type) {
     case "REGISTER_FORM_UPDATE":
-      return Object.assign({}, state, {[action.key]: action.value });
+      return Object.assign({}, state, { [action.key]: action.value });
     default:
       return state;
   }
 }
 
-let reducers = combineReducers({ register: testReducer, rrr: rrrReducer });
+import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
+const history = createHistory()
 
-const store = createStore(reducers, 
-    composeWithDevTools(applyMiddleware(rrrMiddleware, thunk)));
+const middleware = routerMiddleware(history)
 
-ReactDOM.render(<Router>
+let reducers = combineReducers({ register: testReducer, router: routerReducer });
+
+const store = createStore(reducers,
+  composeWithDevTools(applyMiddleware(middleware, thunk)));
+
+ReactDOM.render(
   <Provider store={store}>
-    <div>
-    <TrippleR />    
-      <App />
-    </div>
-  </Provider></Router>,
+    <ConnectedRouter history={history}>
+      <div>
+        <App />
+      </div>
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById('root')
 );

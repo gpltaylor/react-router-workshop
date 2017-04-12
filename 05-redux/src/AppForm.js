@@ -1,7 +1,7 @@
 import React from 'react';
-import NavigationPrompt from 'react-router/NavigationPrompt';
+import { Prompt } from 'react-router';
 import { connect } from 'react-redux';
-import { navigateTo } from "trippler";
+import { push } from "react-router-redux";
 
 class AppFormComponent extends React.Component {
   constructor() {
@@ -22,19 +22,19 @@ class AppFormComponent extends React.Component {
   }
 
   submit() {
-    this.setState({blockTransitions: false, status:'Thank you, your application has been submitted.'});
-    this.props.navigateTo('/');
+    this.setState({
+      blockTransitions: false, 
+      status:'Thank you, your application has been submitted.'
+    }, () => {
+      this.props.navigateTo('/');
+    });
   }
 
   render() {
     return (
       <div>
-        {this.state.blockTransitions && (
-          <NavigationPrompt
-            message={(location) => (
-              `Are you sure you want to go to ${location.pathname}`
-            )}
-          />)}
+        {this.state.blockTransitions === true ? <b>blocking</b> : <b>Not blocking</b>}
+        <Prompt message={`Are you sure you want to go to ${location.pathname}`} when={this.state.blockTransitions} />
         <form>
           <input name="firstName" placeholder="Firstname" value={this.props.firstName} onChange={this.onChange} />
           <input name="surname" placeholder="Surname" value={this.props.surname} onChange={this.onChange} />
@@ -61,7 +61,7 @@ const state = (state, ownProps = {}) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   navigateTo: (location) => {
-    dispatch(navigateTo("/"));
+    dispatch(push('/'))
   }, 
   updateForm: (key, value) => {
     dispatch( { type: "REGISTER_FORM_UPDATE", key, value });
