@@ -18,12 +18,12 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>React Router Redux</h2>
         </div>
-        <Navigation />
+        <Navigation context={this.context} />
         <div className="App-main">
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/apply" component={AppForm}/>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/apply" component={AppForm} />
         </div>
       </div>
     );
