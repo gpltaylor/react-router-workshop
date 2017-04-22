@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import Match from 'react-router/Match';
-import Miss from 'react-router/Miss';
-import Link from 'react-router/Link';
+import { Switch, Route, Link } from 'react-router-dom';
 
 import Home from './home';
+import Aboutus from './aboutus';
 import AppForm from './AppForm';
 
 import logo from './logo.svg';
@@ -14,17 +13,17 @@ import './App.css';
 class FadeIn extends Component {
 
   componentDidMount() {
+    console.log("componentDidMount", this.displayName);
     var that = this;
     // Get the components DOM node
-    var elem = ReactDOM.findDOMNode(this);
+    var elem = ReactDOM.findDOMNode(that);
     // Set the opacity of the element to 0
     elem.style.opacity = 0;
-    window.requestAnimationFrame(function() {
-        // Now set a transition on the opacity
-        console.log(" that.props",  that.props);
-        elem.style.transition = that.props.transition || "opacity 5000ms";
-        // and set the opacity to 1
-        elem.style.opacity = 1;
+    window.requestAnimationFrame(function () {
+      // Now set a transition on the opacity
+      elem.style.transition = that.props.transition || "opacity 5000ms";
+      // and set the opacity to 1
+      elem.style.opacity = 1;
     });
   }
 
@@ -37,12 +36,12 @@ class FadeIn extends Component {
   }
 }
 
-const MatchWithFade = ({ component:Component, transition, ...rest }) => (
-  <Match {...rest} render={(matchProps) => (
+const MatchWithFade = ({ component: Component, transition, ...rest }) => (
+  <Route {...rest} render={(matchProps) => (
     <FadeIn transition={transition}>
-      <Component {...matchProps}/>
+      <Component {...matchProps} />
     </FadeIn>
-  )}/>
+  )} />
 )
 
 class App extends Component {
@@ -58,13 +57,14 @@ class App extends Component {
         <nav>
           <ul>
             <li><Link to="/">Home</Link></li>
+            <li><Link to="/aboutus">About Us</Link></li>
             <li><Link to="/apply">Apply</Link></li>
           </ul>
         </nav>
         <div className="App-main">
-          <Match pattern="/" exactly component={Home} />
-          <Match pattern="/apply" component={AppForm} />
-          <MatchWithFade  pattern="/apply" component={AppForm} transition="opacity 2000ms" />
+            <MatchWithFade path="/" exact component={Home} transition="opacity 5000ms" />
+            <MatchWithFade path="/aboutus" component={Aboutus} transition="opacity 2000ms" />
+            <MatchWithFade path="/apply" component={AppForm} transition="opacity 1000ms" />
         </div>
       </div>
     );

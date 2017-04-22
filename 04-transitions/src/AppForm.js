@@ -1,5 +1,5 @@
 import React from 'react';
-import NavigationPrompt from 'react-router/NavigationPrompt';
+import { Prompt } from 'react-router-dom';
 
 class AppForm extends React.Component {
   constructor() {
@@ -25,7 +25,7 @@ class AppForm extends React.Component {
   render() {
     return (
       <div>
-          <NavigationPrompt 
+          <Prompt 
             when={this.state.blockTransitions}
             message={(location) => (`Are you sure you want to go to ${location.pathname}`)}/>
         <form>
