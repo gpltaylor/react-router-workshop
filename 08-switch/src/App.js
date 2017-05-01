@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Navigation from "./navigation";
 
 import {
   BrowserRouter as Router,
@@ -12,9 +13,18 @@ var Home = () => (
   <div>To get started, edit <code>src/App.js</code> and save to reload.</div>  
 )
 
-var AboutUs = () => (
-  <div>About Us</div>
-)
+class AboutUs extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    alert("Costly AJAX call");
+  }
+
+  render() {
+    return <div>About {this.props.match.params.username || "us"}</div>;
+  }
+}
 
 var AccountDetails = ({match}) => (
   <div>Hello, {match.params.username}</div>
@@ -32,13 +42,14 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>React Router Beta 7</h2>
-          <h3>An Introduction</h3>
+          <h3>An Introduction to Switch</h3>
         </div>
+        <Navigation />
         <p className="App-intro">
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/aboutus" component={AboutUs} />
-          <Route path="/user/aboutus" component={AboutUs} />
+          <Route path="/aboutus/" exact component={AboutUs} />
+          <Route path="/aboutus/:username" component={AboutUs} />
           <Route path="/user/:username" component={AccountDetails} />
           <Route component={NotFound} />
         </Switch>
