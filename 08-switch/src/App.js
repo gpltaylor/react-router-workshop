@@ -48,7 +48,7 @@ class App extends Component {
         <p className="App-intro">
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/aboutus/" exact component={AboutUs} />
+          <Route path="/aboutus/" component={AboutUs} />
           <Route path="/aboutus/:username" component={AboutUs} />
           <Route path="/user/:username" component={AccountDetails} />
           <Route component={NotFound} />
