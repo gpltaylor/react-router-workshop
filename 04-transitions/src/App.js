@@ -53,6 +53,7 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
+          <h3>Intro to Transitions</h3>
         </div>
         <nav>
           <ul>
@@ -62,9 +63,9 @@ class App extends Component {
           </ul>
         </nav>
         <div className="App-main">
-            <MatchWithFade path="/" exact component={Home} transition="opacity 5000ms" />
+            <Route path="/" exact component={Home} />
             <MatchWithFade path="/aboutus" component={Aboutus} transition="opacity 2000ms" />
-            <MatchWithFade path="/apply" component={AppForm} transition="opacity 1000ms" />
+            <MatchWithFade path="/apply" component={AppForm} transition="opacity 3000ms" />
         </div>
       </div>
     );
